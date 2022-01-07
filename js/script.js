@@ -47,17 +47,17 @@ let keepGoing = true;
 let playerInput;
 let count = 0;
 while (keepGoing) {
-  playerInput = getInput();
+  if (count > 4) {
+    keepGoing = false;
+    break;
+  }
+  playerInput = getInput().trim();
   if (
-    playerInput !== "rock" ||
-    playerInput !== "paper" ||
-    playerInput !== "scissors"
+    playerInput === "rock" ||
+    playerInput === "paper" ||
+    playerInput === "scissors"
   ) {
-    playerInput = getInput();
-  } else if (count < 5) {
-      console.log(play(playerInput, computerPlay()));
-      count++;
-  } else {
-      keepGoing = false;
+    console.log(play(playerInput, computerPlay()));
+    count++;
   }
 }
