@@ -40,18 +40,20 @@ function play(playerInput, computerInput) {
 
 function getInput() {
   let temporary = prompt("Please choose between rock, paper, and scissors");
-  return temporary.toLowerCase();
+  if (temporary !== null) temporary.toLowerCase;
+  return temporary;
 }
 
-let keepGoing = true;
 let playerInput;
 let count = 0;
-while (keepGoing) {
-  if (count > 4) {
-    keepGoing = false;
+while (count < 5) {
+  playerInput = getInput();
+
+  if (playerInput === null) {
+    console.log("Game Canceled..");
     break;
   }
-  playerInput = getInput().trim();
+
   if (
     playerInput === "rock" ||
     playerInput === "paper" ||
