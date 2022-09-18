@@ -16,12 +16,19 @@ body {
   grid-template-rows: 1fr 5fr 1fr;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .btn__container {
   margin-bottom: 3rem;
 }
 
 button[data-key="paper"] {
   margin: 1rem;
+  margin-top: 0;
 }
 .score__container {
   display: flex;
@@ -37,6 +44,18 @@ button[data-key="paper"] {
 
 .btn__container img {
   height: 225px;
+}
+
+@media screen and (max-width: 500px) {
+  .btn__container img {
+    height: 125px;
+  }
+}
+
+@media screen and (max-width: 550px) and (min-width: 500px) {
+  .btn__container img {
+    height: 175px;
+  }
 }
 
 .result {
