@@ -1,3 +1,6 @@
+let playerScore = 0;
+let computerScore = 0;
+
 function computerPlay() {
   const choices = ["rock", "paper", "scissors"];
   const index = Math.floor(Math.random() * choices.length);
@@ -11,39 +14,35 @@ function play(playerInput, computerInput) {
     scissors: "paper",
   };
 
-  const returnMessage = `you choose ${playerInput} and the computer choose ${computerInput}`;
-
   if (win[playerInput] === computerInput) {
-    return `${returnMessage}, you win!`;
+    playerScore++;
+    return `${playerInput} beats ${computerInput}!`;
   } else if (win[computerInput] === playerInput) {
-    return `${returnMessage}, you lose!`;
+    computerScore++;
+    return `${computerInput} beats ${playerInput}!`;
   } else {
-    return `${returnMessage}, draw!`;
+    return `Draw! no one get a score.`;
   }
 }
 
-function getInput() {
-  let temporary = prompt("Please choose between rock, paper, and scissors");
-  if (temporary !== null) temporary.toLowerCase;
-  return temporary;
-}
-
-let playerInput;
-let count = 0;
-while (count < 5) {
-  playerInput = getInput();
-
-  if (playerInput === null) {
-    console.log("Game Canceled..");
-    break;
-  }
-
-  if (
-    playerInput === "rock" ||
-    playerInput === "paper" ||
-    playerInput === "scissors"
-  ) {
-    console.log(play(playerInput, computerPlay()));
-    count++;
+function updateText() {
+  const result = document.querySelector(".result");
+  const playerNode = document.querySelector(".playerScore");
+  const computerNode = document.querySelector(".computerScore");
+  result.textContent = play(this.dataset.key, computerPlay());
+  playerNode.textContent = playerScore;
+  computerNode.textContent = computerScore;
+  if (playerScore >= 5 || computerScore >= 5) {
+    result.textContent = playerScore > computerScore ? "You win" : "You lose";
+    const buttons = document.querySelectorAll("button");
+    buttons.forEach((button) => {
+      button.setAttribute("disabled", true);
+    });
+    return;
   }
 }
+
+const buttons = document.querySelectorAll("button");
+buttons.forEach((btn) => {
+  btn.addEventListener("click", updateText);
+});

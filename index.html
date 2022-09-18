@@ -1,13 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script src="./js/script.js"></script>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors!</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="./js/script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/46aa277fb9.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <h1>Rock Paper Scissors</h1>
+    </header>
+    <main>
+      <div class="btn__container">
+        <button data-key="rock">
+          <img src="rock.png" alt="rock" />
+        </button>
+        <button data-key="paper">
+          <img src="paper.png" alt="paper" />
+        </button>
+        <button data-key="scissors">
+          <img src="scissors.png" alt="scissors" />
+        </button>
+      </div>
+
+      <div class="score__container">
+        <div class="score">
+          <i class="fa-solid fa-person fa-xl"></i>
+          <h2 class="playerScore">0</h2>
+        </div>
+        <div class="score">
+          <i class="fa-solid fa-robot fa-xl"></i>
+          <h2 class="computerScore">0</h2>
+        </div>
+      </div>
+      <div class="result__container">
+        <h2 class="result">Result</h2>
+      </div>
+    </main>
+    <footer>
+      <p>Made by @Maharta</p>
+      <a
+        href="https://www.vectorstock.com/royalty-free-vector/rock-paper-scissors-hand-gesture-vector-25169739"
+        >Vector image by VectorStock / vectorstock</a
+      >
+    </footer>
+  </body>
 </html>

@@ -1,0 +1,57 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: black;
+  color: white;
+  display: grid;
+  justify-items: center;
+  height: 100vh;
+  grid-template-rows: 1fr 5fr 1fr;
+}
+
+.btn__container {
+  margin-bottom: 3rem;
+}
+
+button[data-key="paper"] {
+  margin: 1rem;
+}
+.score__container {
+  display: flex;
+  justify-content: space-around;
+  color: white;
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn__container img {
+  height: 225px;
+}
+
+.result {
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+}
+
+footer > p {
+  font-size: larger;
+}
+
+footer > a {
+  color: white;
+  text-decoration: none;
+}
