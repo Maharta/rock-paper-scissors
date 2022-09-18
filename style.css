@@ -58,7 +58,7 @@ button[data-key="paper"] {
   }
 }
 
-.result {
+.result__container {
   text-align: center;
 }
 

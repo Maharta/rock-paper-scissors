@@ -1,5 +1,9 @@
 let playerScore = 0;
 let computerScore = 0;
+const playerNode = document.querySelector(".playerScore");
+const computerNode = document.querySelector(".computerScore");
+const playButtons = document.querySelectorAll(".playButton");
+const result = document.querySelector(".result");
 
 function computerPlay() {
   const choices = ["rock", "paper", "scissors"];
@@ -25,24 +29,35 @@ function play(playerInput, computerInput) {
   }
 }
 
+function resetGame() {
+  playerScore = 0;
+  computerScore = 0;
+  playButtons.forEach((button) => {
+    button.removeAttribute("disabled");
+  });
+  this.remove();
+  result.textContent = "Result";
+  playerNode.textContent = "0";
+  computerNode.textContent = "0";
+}
+
 function updateText() {
-  const result = document.querySelector(".result");
-  const playerNode = document.querySelector(".playerScore");
-  const computerNode = document.querySelector(".computerScore");
   result.textContent = play(this.dataset.key, computerPlay());
   playerNode.textContent = playerScore;
   computerNode.textContent = computerScore;
   if (playerScore >= 5 || computerScore >= 5) {
     result.textContent = playerScore > computerScore ? "You win" : "You lose";
-    const buttons = document.querySelectorAll("button");
-    buttons.forEach((button) => {
-      button.setAttribute("disabled", true);
+    playButtons.forEach((button) => {
+      button.setAttribute("disabled", "disabled");
     });
-    return;
+    const restartButton = document.createElement("button");
+    restartButton.classList.add(".restartButton");
+    restartButton.textContent = "Restart the game";
+    restartButton.addEventListener("click", resetGame);
+    document.querySelector(".result__container").appendChild(restartButton);
   }
 }
 
-const buttons = document.querySelectorAll("button");
-buttons.forEach((btn) => {
+playButtons.forEach((btn) => {
   btn.addEventListener("click", updateText);
 });
